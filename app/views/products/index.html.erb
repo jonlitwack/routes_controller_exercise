@@ -1,5 +1,7 @@
-<h2>Hello World</h2>
-<h2> I AMA View </h2>
+<% product = Product.where(:name => 'Analytics Dashboard').first %>
 <p>
-  Find me in <%= Rails.root.join("app", "views", "products", __FILE__ ) %>
+  Product Name: "<%= product.name %>" costs $<%= product.price %>
+</p>
+<p>
+    The seller of this project is <%= product.user.name %>. He is a <%= product.user.job_title %>.
 </p>
