@@ -1,7 +1,9 @@
-<% product = Product.where(:name => 'Analytics Dashboard').first %>
-<p>
-  Product Name: "<%= product.name %>" costs $<%= product.price %>
-</p>
-<p>
-    The seller of this project is <%= product.user.name %>. He is a <%= product.user.job_title %>.
-</p>
+<% lots_of_products = Product.includes(:user).all %>
+<ul>
+    <% lots_of_products.each do |product| %>
+        <li>
+            Product Name: "<%= product.name %>" costs $<%= product.price %>
+            Sold by: <%= product.user.name %>
+        </li>
+    <% end %>
+</ul>
